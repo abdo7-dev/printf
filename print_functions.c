@@ -15,6 +15,8 @@ if (params->minus_flag)
 sum += _putchar(ch);
 while (pad++ < params->width)
 sum += _putchar(pad_char);
+if(!params->minus_flag)
+sum += _putchar(ch);
 return (sum);
 }
 
@@ -50,7 +52,11 @@ int print_string(va_list ap, params_t *params)
 char *str = va_arg(ap, char *), pad_char = ' ';
 unsigned int pad = 0, sum = 0, i = 0, j;
 (void)params;
-if (params->precision < pad)
+switch((int)(!str))
+case 1:
+str = NULL_STRING;
+j = pad = _strlen(str);
+if(params->precision < pad)
 j = pad = params->precision;
 if (params->minus_flag)
 {
@@ -83,8 +89,8 @@ return (sum);
 
 int print_percent(va_list ap, params_t *params)
 {
-(void)params;
 (void)ap;
+(void)params;
 return (_putchar('%'));
 }
 
