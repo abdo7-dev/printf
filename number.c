@@ -16,6 +16,7 @@ char *convert(long int num, int base, int flags, params_t *params)
     static char buffer[50];
     char sign = 0;
     char *ptr;
+    unsigned long int n = num;
     (void)params;
 
     if (!(flags & CONVERT_UNSIGNED) && num < 0)
@@ -25,7 +26,7 @@ char *convert(long int num, int base, int flags, params_t *params)
     }
 
     array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-    PTR = &buffer[49];
+    ptr = &buffer[49];
     *ptr = '\0';
 
     do
