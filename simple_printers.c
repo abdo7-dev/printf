@@ -9,7 +9,7 @@
  * Return: number bytes printed
  */
 
-int print_from_to(char *start, char *stop, char *except)
+int print_form_to(char *start, char *stop, char *except)
 {
     int sum = 0;
     while (start <= stop)
